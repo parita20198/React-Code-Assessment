@@ -28,39 +28,15 @@ function Login (props) {
   };
 
   const onSubmit = (e) => {
-      if(username == "foo" && password == "bar"){
-            //   alert("Login success !!");
-            //   window.location.href = "/Home";
-            //   let history = useHistory();
-            //   history.push('/Home')
-            // sethomeFlag(true);
-            //  <Navigate to="/Home"/>
-            window.location.href = "http://localhost:3001/Home";
-            // props.history.push("/Home");
+      if(username == "foo" && password == "bar"){            
+            window.location.href = "http://localhost:3001/Home";        
       }else{
           alert("Login failed !!");
       }
   }
 
-// render(){
-    // if(homeFlag){
-    //     <Navigate to="/Home"/>
-    // }
   return (
     <React.Fragment>
-    {/* <Form>
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-            <Form.Label>Username</Form.Label>    
-            <Form.Control type="text" placeholder="Enter username" />
-            
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-            type="password"
-            id="inputPassword5"
-            aria-describedby="passwordHelpBlock"
-            />  
-            </Form.Group> 
-    </Form> */}
     
         <form>
                 <h3>Log In</h3>
