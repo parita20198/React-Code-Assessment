@@ -1,15 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import useFetch from "../hooks/useFetch";
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  Navigate,
-    // useHistory
-} from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 function Login (props) {
   const [homeFlag, sethomeFlag] = useState(false);
@@ -29,11 +19,19 @@ function Login (props) {
 
   const onSubmit = (e) => {
       if(username == "foo" && password == "bar"){            
-            window.location.href = "http://localhost:3001/Home";        
+            // window.location.href = "http://localhost:3001/Home";       
+            // useNavigate().push('/Home'); 
+            navigate();
+            
       }else{
           alert("Login failed !!");
       }
   }
+  
+  const history = useHistory();
+const navigate = () => {
+    history.push('/Home');
+}
 
   return (
     <React.Fragment>
