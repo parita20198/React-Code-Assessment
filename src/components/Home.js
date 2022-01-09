@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import useFetch from "../hooks/useFetch";
 import Card from 'react-bootstrap/Card';
+import { useHistory } from 'react-router-dom';
 
 function Home() {
   const [query, setQuery] = useState("");
@@ -29,12 +30,17 @@ function Home() {
     if (loader.current) observer.observe(loader.current);
   }, [handleObserver]);
 
+  const history = useHistory();
+  const navigate = () => {
+      history.push('/');
+  }
+
   return (
     <React.Fragment>
     <div className="App" style={{marginTop: "20px"}}>
       <div className="row">
         <h2 className="col">Infinite Scroll Contact list</h2>
-        <button className="col-1 btn btn-primary btn-block" style={{marginRight:"20px"}} onClick={e=>{window.location.href = "http://localhost:3001/";}}>Logout</button>                
+        <button className="col-1 btn btn-primary btn-block" style={{marginRight:"20px"}} onClick={e=>navigate()}>Logout</button>                
       </div>     
       <div>
         {list.map((book, i) => (
